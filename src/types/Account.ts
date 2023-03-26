@@ -3,3 +3,8 @@ export interface UserState{
     email: string | null;
     type : "customer" | "contributor"
 }
+
+export interface LoginType{
+    userState : UserState,
+    setUserState : React.Dispatch<React.SetStateAction<UserState>>
+}

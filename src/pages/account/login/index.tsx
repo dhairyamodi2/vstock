@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { getAuth, GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
 import {app} from '../../../firebase/firebase';
-import Login from "@/components/Login";
-import CompleteSignUp from "@/components/CompleteSignUp";
+import Login from "@/components/Account/Login";
+import CompleteSignUp from "@/components/Account/CompleteSignUp";
 import { UserState } from "@/types/Account";
 
 const Page : React.FC = function(){
