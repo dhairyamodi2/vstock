@@ -1,0 +1,27 @@
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    background-image: linear-gradient(15deg, rgb(245, 247, 250) 16%, rgb(228, 232, 238) 100%);
+}
+.ham-icon{
+    font-size: x-large;
+    margin: 5px;
+
+}
+.header > span:last-child {
+    font-size: medium;
+    color: white;
+    background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+    padding: 8px;
+    margin: 0 5px;
+}
+
+.vstock-logo{
+    font-size: xx-large;
+    letter-spacing: 2px;
+}
+
