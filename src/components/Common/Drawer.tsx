@@ -1,5 +1,5 @@
-import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, FormLabel, Input, InputGroup, InputLeftAddon, InputRightAddon, Select, Stack, Textarea, useDisclosure } from "@chakra-ui/react"
-import React from "react"
+import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, FormLabel, Input, InputGroup, InputLeftAddon, InputRightAddon, List, ListItem, Select, Stack, Text, Textarea, useDisclosure } from "@chakra-ui/react"
+import React, { ChangeEvent, useState } from "react"
 
 
 interface DrawerProps {
@@ -8,6 +8,17 @@ interface DrawerProps {
     onClose : () => void;
 }
 const DrawerComponent : React.FC<DrawerProps> = function ({isOpen, onClose, onOpen})  {
+    const [categories, setCategories] = useState(["MEN", "WOMEN", "LANDSCAPE", "COUPLES", "CHILDREN", "RURAL", "FESTIVAL", "VACATION", "FOCUS"]);
+
+    const [filter, setFilters] = useState(["MEN", "WOMEN", "LANDSCAPE", "COUPLES", "CHILDREN", "RURAL", "FESTIVAL", "VACATION", "FOCUS"]);
+
+    function handleSearch(e : ChangeEvent<HTMLInputElement>){
+        let result = [];
+        
+        result  = categories.filter((category) => category.search(e.target.value.toLocaleUpperCase()) != -1);
+        console.log(result);
+        setFilters(result);
+    }
     return (
       <>
         <Drawer
@@ -19,48 +30,28 @@ const DrawerComponent : React.FC<DrawerProps> = function ({isOpen, onClose, onOp
           <DrawerContent>
             <DrawerCloseButton />
             <DrawerHeader borderBottomWidth='1px'>
-              Create a new account
+              Browse Categories
             </DrawerHeader>
   
             <DrawerBody>
               <Stack spacing='24px'>
                 <Box>
-                  <FormLabel htmlFor='username'>Name</FormLabel>
+                  <input type='text' placeholder="Search Categories" onChange={handleSearch}/>
                 </Box>
   
                 <Box>
-                  <FormLabel htmlFor='url'>Url</FormLabel>
-                  <InputGroup>
-                    <InputLeftAddon>http://</InputLeftAddon>
-                    <Input
-                      type='url'
-                      id='url'
-                      placeholder='Please enter domain'
-                    />
-                    <InputRightAddon>.com</InputRightAddon>
-                  </InputGroup>
-                </Box>
-  
-                <Box>
-                  <FormLabel htmlFor='owner'>Select Owner</FormLabel>
-                  <Select id='owner' defaultValue='segun'>
-                    <option value='segun'>Segun Adebayo</option>
-                    <option value='kola'>Kola Tioluwani</option>
-                  </Select>
-                </Box>
-  
-                <Box>
-                  <FormLabel htmlFor='desc'>Description</FormLabel>
-                  <Textarea id='desc' />
+                  <Box display='flex' flexDirection={'column'} alignItems={'center'} justifyContent='center'>
+                    {filter.map((category) => <Box><p style={{backgroundColor: '#EDF2F7', width: '200px', textAlign:"center", padding: '10px', margin: '10px', borderRadius: '10px'}}>{category}</p></Box>)}
+                  </Box>
                 </Box>
               </Stack>
             </DrawerBody>
   
             <DrawerFooter borderTopWidth='1px'>
-              <Button variant='outline' mr={3} onClick={onClose}>
-                Cancel
-              </Button>
-              <Button colorScheme='blue'>Submit</Button>
+              <Button 
+            bgImage={'linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);'} 
+            _hover= {{bgImage:'linear-gradient(92.88deg, #455EB5 99.16%, #5643CC 99.89%, #673FD7 64.72%);'}}
+            color={'white'} onClick={onClose}>Close</Button>
             </DrawerFooter>
           </DrawerContent>
         </Drawer>

@@ -32,6 +32,7 @@
   cursor: pointer;
   padding: 15px;
   font-size: large;
+  transition: all 0.5s;
 }
 
 .info-text{
@@ -42,4 +43,8 @@
 .login-logo{
   max-width: 40vw;
   max-height: 40vh;
+}
+
+.button:hover{
+  transform: scale(1.03);
 }

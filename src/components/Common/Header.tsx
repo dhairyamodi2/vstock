@@ -12,7 +12,6 @@ export const Header = function(){
             <DrawerComponent isOpen={isOpen} onClose={onClose} onOpen = {onOpen}/>
             <span className="vstock-logo">vStock</span>
             <span className="button">Sign In</span> 
-            
         </div>
     )
 }
