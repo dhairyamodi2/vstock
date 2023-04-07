@@ -4,6 +4,7 @@ import { store } from '../redux/store';
 import '../styles/globals.css';
 import '../styles/Header.css';
 import '../styles/Home.css';
+import '../styles/Categories.css';
 import { ChakraProvider } from "@chakra-ui/react";
 
 export default function App({ Component, pageProps }: AppProps) {
