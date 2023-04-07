@@ -2,6 +2,8 @@
     position: relative;
     display: inline-flex;
     margin: 7px;
+    height: 400px;
+    max-height: 400px;
 }
 
 .image-actions{
