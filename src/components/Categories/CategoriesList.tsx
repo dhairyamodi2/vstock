@@ -15,7 +15,7 @@ const CategoryList = function(){
             <CategoriesCard />
             <CategoriesCard />
             <CategoriesCard />
-            
+
         </div>
     </div>
     )

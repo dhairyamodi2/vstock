@@ -49,6 +49,10 @@
   transform: scale(1.03);
 }
 
-.home{
+/* .home{
   margin: 0
+} */
+
+.button-scheme{
+  background-color: black;
 }

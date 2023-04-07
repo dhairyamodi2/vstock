@@ -13,7 +13,11 @@ const Search = function(){
             <form method="get" onSubmit={handleSubmit}>
                 <input type={'text'} name='search_field' placeholder="Search Images" autoComplete="off"/>
             </form>
-            <button onClick={onOpen} className='button'>Filter</button>
+            <Button 
+            bgColor={'black'} 
+            color={'white'} 
+            transform={'0.3s'}
+            _hover={{bgColor: 'black', color: 'white'}} onClick={onOpen}>Filter</Button>
             <ModelOverlay isOpen={isOpen} onClose={onClose} onOpen={onOpen}/>
         </div>
     )

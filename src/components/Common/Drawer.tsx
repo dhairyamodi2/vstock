@@ -48,10 +48,11 @@ const DrawerComponent : React.FC<DrawerProps> = function ({isOpen, onClose, onOp
             </DrawerBody>
   
             <DrawerFooter borderTopWidth='1px'>
-              <Button 
-            bgImage={'linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);'} 
-            _hover= {{bgImage:'linear-gradient(92.88deg, #455EB5 99.16%, #5643CC 99.89%, #673FD7 64.72%);'}}
-            color={'white'} onClick={onClose}>Close</Button>
+            <Button 
+            bgColor={'black'} 
+            color={'white'} 
+            transform={'0.3s'}
+            _hover={{bgColor: 'black', color: 'white'}} onClick={onClose}>Close</Button>
             </DrawerFooter>
           </DrawerContent>
         </Drawer>

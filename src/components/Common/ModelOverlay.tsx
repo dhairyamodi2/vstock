@@ -29,18 +29,19 @@ const ModelOverlay : React.FC<OverlayProps>= function ({isOpen, onClose, onOpen}
           <ModalBody>
             <input type={'text'} placeholder={'Search Categories'} onChange={handleSearch}/>
             <div className="model-overlay-categories">
-                {filter.map((category, i) => <><Checkbox name = {category} onChange={handleChange} key={category} marginLeft={'10px'} marginRight={'10px'}>{category}</Checkbox></>)}
+                {filter.map((category, i) => <><Checkbox colorScheme={'gray'} name = {category} onChange={handleChange} key={category} marginLeft={'10px'} marginRight={'10px'}>{category}</Checkbox></>)}
             </div>
           </ModalBody>
 
           <ModalFooter>
             <Button colorScheme='gray' mr={3} onClick={onClose}>
-              Close
+              Remove Filters
             </Button>
             <Button 
-            bgImage={'linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);'} 
-            _hover= {{bgImage:'linear-gradient(92.88deg, #455EB5 99.16%, #5643CC 99.89%, #673FD7 64.72%);'}}
-            color={'white'}>Apply Filter</Button>
+            bgColor={'black'} 
+            color={'white'} 
+            transform={'0.3s'}
+            _hover={{bgColor: 'black', color: 'white'}}>Apply Filters</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

@@ -1,5 +1,5 @@
 import { HamburgerIcon } from "@chakra-ui/icons"
-import { Text, useDisclosure } from "@chakra-ui/react"
+import { Button, Text, useDisclosure } from "@chakra-ui/react"
 import Image from "next/image"
 import DrawerComponent from "./Drawer"
 import vStockLogo from '../../assets/vStockLogo.svg';
@@ -11,7 +11,11 @@ export const Header = function(){
              <HamburgerIcon onClick={onOpen} className='ham-icon'/>
             <DrawerComponent isOpen={isOpen} onClose={onClose} onOpen = {onOpen}/>
             <span className="vstock-logo">vStock</span>
-            <span className="button">Sign In</span> 
+            <Button 
+            bgColor={'black'} 
+            color={'white'} 
+            transform={'0.3s'}
+            _hover={{bgColor: 'black', color: 'white'}}>Sign In</Button>
         </div>
     )
 }
