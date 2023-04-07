@@ -1,5 +1,6 @@
 * {
   font-family: 'Ubuntu', Verdana, Geneva, Tahoma, sans-serif;
+  cursor: pointer;
 }
 
 
@@ -31,6 +32,7 @@
   cursor: pointer;
   padding: 15px;
   font-size: large;
+  transition: all 0.5s;
 }
 
 .info-text{
@@ -41,4 +43,16 @@
 .login-logo{
   max-width: 40vw;
   max-height: 40vh;
+}
+
+.button:hover{
+  transform: scale(1.03);
+}
+
+/* .home{
+  margin: 0
+} */
+
+.button-scheme{
+  background-color: black;
 }

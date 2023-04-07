@@ -22,7 +22,7 @@ const Page : React.FC = function(){
     }
     return (
         <div className="login-component">
-            {userState.email === null || userState.id === null ? <Login userState={userState} setUserState={setUserState}/> : <CompleteSignUp />}
+            {userState.email === null || userState.id === null ? <Login userState={userState} setUserState={setUserState}/> : <CompleteSignUp email={userState.email} id = {userState.id} type = {userState.type}/> }
         </div>
     )
 }

@@ -1,7 +1,12 @@
-const CompleteSignUp = function(){
+import { UserState } from "@/types/Account";
+import ContributorProfile from "./CompleteCustomerProfile";
+import CustomerProfile
+ from "./CompleteContributorProfile";
+const CompleteSignUp : React.FC<UserState>= function({email, id, type}){
     return (
         <div>
-            complete sign up
+            {type === 'customer' && <CustomerProfile />}
+            {type === 'contributor' && <ContributorProfile />}
         </div>
     )
 }
