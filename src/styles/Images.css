@@ -1,0 +1,55 @@
+.image-card{
+    position: relative;
+    display: inline-flex;
+    margin: 7px;
+}
+
+.image-actions{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: inline-flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-color: black;
+  color: #fff;
+  font-size: larger;
+  visibility: hidden;
+  font-weight: 900;
+  transition: opacity .2s, visibility .2s;
+  visibility: none;
+  opacity: 0.7;
+}
+
+.img-actions{
+    visibility: hidden;
+    display: grid;
+    grid-template-columns: 20fr 1fr 1fr;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 0 3px;
+    background-color: black;
+}
+.i-icons {
+    margin: 0 3px;
+}
+
+.image-card:hover .image-actions .img-actions{
+    visibility: visible;
+}
+
+@media screen and (max-width: 1390px) {
+    .image-card{
+        width: 410px;
+        height: 410px;
+    }
+}
+@media screen and (max-width: 1290px) {
+    .image-card{
+        width: 380px;
+        height: 380px;
+    }
+}
+

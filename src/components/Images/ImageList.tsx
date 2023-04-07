@@ -1,8 +1,19 @@
+import ImageCard from "./ImageCard";
+
 const ImageList = function(){
     return (
-        <div className="images">
-            <div className="list-heading">
-                Featured Categories
+        <div className="category-list">
+            <div className="card-list">
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+                <ImageCard />
+
             </div>
         </div>
     )
