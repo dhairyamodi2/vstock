@@ -1,6 +1,6 @@
 import { Dispatch } from "redux"
 import { categories_fail, categories_req, categories_suc } from "./categories.constants"
-import { CategoryAction } from "./categories.type"
+import { CategoryAction, CategoryResponse } from "./categories.type"
 
 export const getCategories = function(){
     return async function(dispatch : Dispatch<CategoryAction>) {
@@ -12,7 +12,7 @@ export const getCategories = function(){
             })
     
             const data = await fetch("http://localhost:3001/categories/all");
-            const res = await data.json();
+            const res = await data.json() as CategoryResponse;
             console.log(data.status)
             console.log(res);
             if(data.status == 200 && res.success == true){
@@ -24,7 +24,7 @@ export const getCategories = function(){
             }
             dispatch({
                 type: categories_fail,
-                payload: {data: res.data, success: res.success, message: res.message, statusCode: res.status}
+                payload: {data: res.data, success: res.success, message: res.message, statusCode: res.statusCode}
             })
         } catch (error) {
             dispatch({
