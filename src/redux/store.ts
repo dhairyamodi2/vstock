@@ -6,11 +6,14 @@ import { categoryReducers } from './Categories/categories.reducers';
 // import {loginReducers} from "./reducers";
 import { getCategories } from './Categories/categories.actions';
 import { getImages } from './Images/images.actions';
-import { imageReducers } from './Images/images.reducers';
+import { imageAlbumReducer, imageDetailsReducer, imageReducers, imageUserRedeucer } from './Images/images.reducers';
 
 const reducers = combineReducers({
     categories: categoryReducers,
-    images : imageReducers
+    images : imageReducers,
+    imageDetails : imageDetailsReducer,
+    imageByAlbums : imageAlbumReducer,
+    imageByUser : imageUserRedeucer
 }
 )
 const initialState = {}
