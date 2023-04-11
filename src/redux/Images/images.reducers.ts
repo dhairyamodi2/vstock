@@ -1,8 +1,13 @@
 import { images_fail, images_req, images_suc } from "./images.constants";
 import { ImageActions, ImagesState } from "./images.types";
 
-export const imageReducers = (state : ImagesState, action: ImageActions) : ImagesState => {
-    switch(action.type){
+export const imageReducers = (state: ImagesState = {
+    success: false,
+    loading: true,
+    message: "Some error",
+    stock: []
+}, action: ImageActions): ImagesState => {
+    switch (action.type) {
         case images_req:
             return {
                 ...action.payload,
@@ -22,11 +27,6 @@ export const imageReducers = (state : ImagesState, action: ImageActions) : Image
                 success: true
             }
         default:
-            return {
-                success: false,
-                loading: true,
-                message: "Some error",
-                stock: []
-            }
+            return state;
     }
 }

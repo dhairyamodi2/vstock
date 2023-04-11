@@ -13,9 +13,9 @@ const CategoriesCard: React.FC<CategoryProps> = function (category) {
         router.push({
             pathname: '/images',
             query: {
-                categories: ["Landscape", "Nature"]
+                categories: category.category_name
             },
-        }, '/images', { shallow: true })
+        }, undefined, {shallow: true})
     }
     return (
        

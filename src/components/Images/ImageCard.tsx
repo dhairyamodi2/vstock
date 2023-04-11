@@ -2,7 +2,14 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { MdOutlineAddShoppingCart, MdOpenInNew } from 'react-icons/md'
-const ImageCard = function () {
+
+
+interface ImageProps {
+    id: string;
+    public_url : string;
+    verdict : string;
+}
+const ImageCard : React.FC<ImageProps>= function ({id, public_url, verdict}) {
     const router = useRouter();
     function handleClick() {
         router.push({
@@ -14,11 +21,11 @@ const ImageCard = function () {
     }
     return (
         <div className="image-card" onClick={handleClick}>
-            <Image src={'https://c4.wallpaperflare.com/wallpaper/83/500/871/waterfall-high-resolution-desktop-wallpaper-preview.jpg'} loading={'lazy'} alt={''} width={440} height={440} >
+            <Image src={public_url} loading={'lazy'} alt={''} width={440} height={440} >
             </Image>
             <div className="image-actions">
                 <div className="img-actions">
-                    <span>2es5-s4we3</span>
+                    <span>{id}</span>
                     <div className="i-icons">
                         <MdOutlineAddShoppingCart />
                     </div>

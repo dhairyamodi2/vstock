@@ -20,8 +20,7 @@ const ModelOverlay : React.FC<OverlayProps>= function ({isOpen, onClose, onOpen}
         console.log(result);
         setFilters(result);
     }
-
-    useEffect(() => {
+    useEffect(() => { 
       setFilters(categories);
     }, [categories])
     return (
@@ -41,7 +40,7 @@ const ModelOverlay : React.FC<OverlayProps>= function ({isOpen, onClose, onOpen}
 
           <ModalFooter>
             <Button colorScheme='gray' mr={3} onClick={onClose}>
-              Remove Filtersz
+              Remove Filters
             </Button>
             <Button 
             bgColor={'black'} 

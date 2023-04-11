@@ -1,7 +1,7 @@
 import { CategoryState } from "@/redux/Categories/categories.type";
 import { State } from "@/redux/store";
 import { Box, Button, Drawer, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerHeader, DrawerOverlay, FormLabel, Input, InputGroup, InputLeftAddon, InputRightAddon, List, ListItem, Select, Stack, Text, Textarea, useDisclosure } from "@chakra-ui/react"
-import React, { ChangeEvent, useState } from "react"
+import React, { ChangeEvent, useEffect, useState } from "react"
 import { useSelector } from "react-redux";
 
 
@@ -22,6 +22,10 @@ const DrawerComponent: React.FC<DrawerProps> = function ({ isOpen, onClose, onOp
     console.log(result);
     setFilters(result);
   }
+
+  useEffect(() => {
+    setFilters(categories);
+  }, [categories])
   return (
     <>
       <Drawer

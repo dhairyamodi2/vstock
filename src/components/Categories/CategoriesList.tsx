@@ -19,7 +19,7 @@ const CategoryList = function () {
                 <div className="loader">
                     <Spinner size='xl' textAlign={'center'} />
                 </div> :
-                    <div className="card-list">
+                     <div className="card-list">
                         {categories.categories?.map((category) => {
                             return <CategoriesCard category_image={category.category_image} category_name={category.category_name} />
                         })}

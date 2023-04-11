@@ -8,16 +8,26 @@ import ImageList from "@/components/Images/ImageList";
 import { allActions } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import { getImages } from "@/redux/Images/images.actions";
+import { getCategories } from "@/redux/Categories/categories.actions";
+import { bindActionCreators } from "redux";
 
 const Images = () => {
     const router = useRouter();
     const dispatch = useDispatch();
+
+    const {getCategories, getImages} = bindActionCreators(allActions, dispatch)
+    
+
+    useEffect(() => {
+        getCategories();
+    }, [router.query.categories])
     useEffect(() => {
         console.log(router.query);
         let arr : string[] = [];
         if(router.query.categories) arr = arr.concat(router.query.categories)
         console.log('params' + " " + arr);
-        dispatch(getImages(arr) as any);
+        getImages(arr);
+        
     }, [router.query.categories])
 
     return (

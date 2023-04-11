@@ -18,6 +18,8 @@ export const getImages = function(categories: Array<string>) {
             console.log(url);
             const data = await fetch(url);
             const res = await data.json() as ImageResponse;
+            console.log('response');
+            console.log(res)
             if(res.success == true && data.status == 200){
                 let stock: Array<Stock> = [];
                 res.data.map((category) => {

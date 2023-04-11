@@ -41,6 +41,9 @@
 .image-card:hover .image-actions .img-actions{
     visibility: visible;
 }
+.img-actions > span{
+    font-size: small;
+}
 
 @media screen and (max-width: 1390px) {
     .image-card{
