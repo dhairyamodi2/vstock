@@ -6,6 +6,7 @@ import '../styles/Header.css';
 import '../styles/Home.css';
 import '../styles/Categories.css';
 import '../styles/Images.css';
+import '../styles/Details.css';
 import { ChakraProvider } from "@chakra-ui/react";
 import { bindActionCreators } from "redux";
 

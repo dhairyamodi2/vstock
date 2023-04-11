@@ -4,6 +4,12 @@ export interface Stock{
     verdict : string;
     public_url : string;
 }
+
+interface GetResponse{
+    statusCode: 200 | 400 | 500;
+    message: string;
+    success: true | false;
+}
 interface Categories{
     category_name : string;
     category_verdict : string;
@@ -24,9 +30,32 @@ export interface ImageActions {
 }
 
 
-export interface ImageResponse{
-    statusCode : 200 | 400 | 500;
-    message: string;
-    success: true | false;
+export interface ImageResponse extends GetResponse{
     data: Array<Categories>
+}
+
+export interface StockDetails extends Stock{
+    categories : Array<Categories>
+    user : {uid : string}
+    album: {album_name : string}
+}
+export interface ImageDetailResponse extends GetResponse{
+    data: StockDetails
+}
+
+
+export interface ImageDetailState{
+    success: true | false;
+    message: string;
+    stock: StockDetails | null;
+    loading: true | false;
+}
+
+export interface ImageDetailAction{
+    type: string;
+    payload: ImageDetailState
+}
+
+export interface AlbumResponse extends GetResponse{
+    data: Array<Stock>
 }

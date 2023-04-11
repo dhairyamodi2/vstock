@@ -3,6 +3,20 @@
     margin-bottom: 50px;
 }
 
+.more-info-heading {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.component-heading-text{
+    font-size: larger;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    padding: 0px 30px 20px 30px;
+    border-bottom: 2px #5643CC dotted;
+}
 .component-heading > span {
     font-size: larger;
     font-weight: 600;

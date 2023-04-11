@@ -13,10 +13,7 @@ const ImageCard : React.FC<ImageProps>= function ({id, public_url, verdict}) {
     const router = useRouter();
     function handleClick() {
         router.push({
-            pathname: '/images',
-            query: {
-                categories: ["Landscape", "Nature"]
-            }
+            pathname: '/images/details/' + id,
         })
     }
     return (
