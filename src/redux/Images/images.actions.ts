@@ -22,9 +22,19 @@ export const getImages = function(categories: Array<string>) {
             console.log(res)
             if(res.success == true && data.status == 200){
                 let stock: Array<Stock> = [];
+                let stockString : Array<string> = [];
                 res.data.map((category) => {
                     stock = stock.concat(category.stock);
                 })
+                stockString = stock.map((item) => JSON.stringify(item));
+                let arr = stockString.filter((item, pos) => {
+                    if(stockString.indexOf(item) == pos){
+                        return true;
+                    }
+                    return false;
+                })
+
+                stock = arr.map((item) => JSON.parse(item));
                 dispatch({
                     type: images_suc,
                     payload: {loading: false, message: res.message, stock, success: true}

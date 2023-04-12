@@ -3,59 +3,62 @@
   cursor: pointer;
 }
 
-
 .login{
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  border: 1px solid gray;
-  margin-top: 12vh;
+  flex-shrink: 0;
+  justify-self: center;
+  padding: 60px 20px;
+  margin: 80px auto;
+  justify-items: center;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 15px 45px, rgba(0, 0, 0, 0.12) 0px 0px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 10px 10px, rgba(0, 0, 0, 0.09) 0px 0px 5px;
+  /* margin: 100px 50px 50px 50px; */
 }
-.login-type{
+
+@media screen and (max-width : 800px){
+  .login{
+    width: 80%;
+  }
+}
+/* .login-type{
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
-}
+} */
 
 .login-type > div{
   padding: 5px;
 }
 
-.button{
-  background-image: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
-  border-radius: 8px;
-  border-style: none;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  padding: 15px;
-  font-size: large;
-  transition: all 0.5s;
+.complete-sign-up{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
+.login-logo{
+    max-width: 40vw;
+    max-height: 40vh;
+    display: inline;
+}
+
 
 .info-text{
   margin-top: 13px;
   color: gray;
   font-size: small;
 }
-.login-logo{
-  max-width: 40vw;
-  max-height: 40vh;
-}
 
-.button:hover{
-  transform: scale(1.03);
-}
+
 
 /* .home{
   margin: 0
 } */
 
-.button-scheme{
-  background-color: black;
-}
 
 .loader {
   margin-top: 20px;

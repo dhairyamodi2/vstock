@@ -3,86 +3,70 @@ import React, { useState } from "react";
 import logo from '../../assets/vstock.jpg';
 import Image from 'next/image';
 import styles from '../../styles/Accounts/Login.module.css';
-import { getAuth, GoogleAuthProvider, signInWithPopup} from 'firebase/auth';
-import {app} from '../../firebase/firebase';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { app } from '../../firebase/firebase';
 import { useRouter } from 'next/router'
-
+import { Button } from "@chakra-ui/react";
+import {FaGoogle} from 'react-icons/fa'
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
-const Login : React.FC<LoginType>= function({setUserState, userState}){
+const Login: React.FC<LoginType> = function ({ setUserState, userState }) {
     const router = useRouter()
-    const [typeState, setTypeState] = useState<{type: 'customer' | 'contributor'}>({
-        type: 'customer'
-    })
-    function handleSignIn(){
+    function handleSignIn() {
         signInWithPopup(auth, provider).then((result) => {
             const obj = {
-                email : result.user.email,
-                id : result.user.uid,
-                type: typeState.type
+                email: result.user.email,
+                uid: result.user.uid,
+                user_type: 'customer'
             }
             console.log(obj);
             fetch('http://localhost:3001/user/login', {
                 method: 'POST',
                 body: JSON.stringify(obj),
                 headers: {
-                    'Content-type' : "application/json"
+                    'Content-type': "application/json"
                 }
             }).then((data) => data.json()).then(
                 (data) => {
                     console.log(data);
 
-                    if(data && data.data && data.data.user){
+                    if (data && data.data && data.data.user) {
                         router.push('/');
                     }
-                    else{
-                        setUserState((prevState => {
+                    else if(data.statusCode == 422 || data.statusCode == 400 || data.statusCode == 500){
+                        alert(data.message);
+                    }
+                    else {
+                        setUserState((prevState) => {
                             return {
+                                ...prevState,
                                 email: obj.email,
-                                id : obj.id,
-                                type: obj.type
+                                type: obj.user_type,
+                                id : obj.uid
                             }
-                        }));
+                        })
                     }
                 }
-                ).catch((err) => console.log(err))
-            
+            ).catch((err) => console.log(err))
+
 
         }).catch((err) => {
             alert(err);
             window.location.reload();
         })
     }
-
-    function handleRole(e : React.ChangeEvent<HTMLInputElement>){
-        setUserState((prevState) => {
-            return {
-                ...prevState,
-                type: e.target.value.includes('Customer') ? 'customer' : 'contributor'
-            }
-        })
-        setTypeState({
-            type: e.target.value.includes('Customer') ? 'customer' : 'contributor'
-        })
-    }
     return (
         <div className="login">
-            <div className='login-img'>
-                <Image src={logo} alt="logo" className="login-logo"/>
-            </div>
-            <div className="login-type">
-                <div>
-            <input type={'radio'} name='type' value={'Login as Customer'} id='cust' onChange={handleRole}> 
-                </input>
-                <label htmlFor="cust">Login as Customer</label></div>
-                <div>
-                <input type={'radio'} name='type' value={'Login as Contributor'} id='contrib' onChange={handleRole}/>
-                <label htmlFor="contrib">Login as Contributor</label></div>
-            </div>
+            <Image src={logo} alt="logo" className="login-logo"/>
             <p className="info-text">Continue to login or create account</p>
-            <div className="login-button">
-                <button className="button" onClick={handleSignIn}>Continue With Google</button>
-            </div>
+            <Button
+                leftIcon={<FaGoogle />}
+                size={'md'}
+                margin={1}
+                bgColor={'black'}
+                color={'white'}
+                transform={'0.3s'}
+                _hover={{ bgColor: 'black', color: 'white' }} onClick={handleSignIn}>Continue with Google</Button>
         </div>
     )
 }

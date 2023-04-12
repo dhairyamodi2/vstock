@@ -9,7 +9,7 @@ const MoreDetails = function(){
         <div className="more-details">
             {imageDetails.stock && imageDetails.stock.album && <MoreInfo type="album" payload={imageDetails.stock.album.album_name}/>}
             {imageDetails.stock && imageDetails.stock.user && <MoreInfo type="user" payload={imageDetails.stock.user.uid} />}
-            {/* <MoreInfo />     */}
+            {imageDetails.stock && imageDetails.stock.categories && <MoreInfo type="categories" payload="" categories={imageDetails.stock.categories.map((category) => category.category_name)}  />}
         </div>
     )
 }

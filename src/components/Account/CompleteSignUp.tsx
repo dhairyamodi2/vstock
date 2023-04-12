@@ -1,12 +1,10 @@
 import { UserState } from "@/types/Account";
-import ContributorProfile from "./CompleteCustomerProfile";
-import CustomerProfile
- from "./CompleteContributorProfile";
+import CustomerProfile from "./CompleteCustomerProfile";
+
 const CompleteSignUp : React.FC<UserState>= function({email, id, type}){
     return (
-        <div>
-            {type === 'customer' && <CustomerProfile />}
-            {type === 'contributor' && <ContributorProfile />}
+        <div className="login">
+            <CustomerProfile email={email} id={id} type={type}/>
         </div>
     )
 }
