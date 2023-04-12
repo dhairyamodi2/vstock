@@ -8,10 +8,15 @@ import { app } from '../../firebase/firebase';
 import { useRouter } from 'next/router'
 import { Button } from "@chakra-ui/react";
 import {FaGoogle} from 'react-icons/fa'
+import { useDispatch } from "react-redux";
+import { loginAction } from "@/redux/User/user.actions";
+import { User } from "@/redux/User/user.types";
+
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 const Login: React.FC<LoginType> = function ({ setUserState, userState }) {
-    const router = useRouter()
+    const router = useRouter();
+    const dispatch = useDispatch();
     function handleSignIn() {
         signInWithPopup(auth, provider).then((result) => {
             const obj = {
@@ -31,6 +36,7 @@ const Login: React.FC<LoginType> = function ({ setUserState, userState }) {
                     console.log(data);
 
                     if (data && data.data && data.data.user) {
+                        dispatch(loginAction(data.data.token as string, data.data.user as User) as any);
                         router.push('/');
                     }
                     else if(data.statusCode == 422 || data.statusCode == 400 || data.statusCode == 500){

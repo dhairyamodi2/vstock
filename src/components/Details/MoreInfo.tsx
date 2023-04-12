@@ -63,7 +63,7 @@ const MoreInfo: React.FC<MoreInfoProps> = function ({ payload, type, categories 
                         </div>
                         <div className='card-list'>
                             {renderImages(images.stock).map((item) => {
-                                return <ImageCard id={item.id} public_url={item.public_url} verdict={item.verdict} />
+                                return <ImageCard id={item.id} key= {item.id} public_url={item.public_url} verdict={item.verdict} />
                             })}
                         </div>
                     </> : ""}

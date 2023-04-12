@@ -48,7 +48,7 @@ const DrawerComponent: React.FC<DrawerProps> = function ({ isOpen, onClose, onOp
 
               <Box>
                 <Box display='flex' flexDirection={'column'} alignItems={'center'} justifyContent='center'>
-                  {filter?.map((category) => <div><p style={{ backgroundColor: '#EDF2F7', width: '200px', textAlign: "center", padding: '10px', margin: '10px', borderRadius: '10px' }}>{category.category_name}</p></div>)}
+                  {filter?.map((category) => <div key={category.category_name}><p style={{ backgroundColor: '#EDF2F7', width: '200px', textAlign: "center", padding: '10px', margin: '10px', borderRadius: '10px' }}>{category.category_name}</p></div>)}
                 </Box>
               </Box>
             </Stack>

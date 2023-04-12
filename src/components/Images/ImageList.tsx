@@ -18,7 +18,7 @@ const ImageList = function () {
                 </div> :
                <div className="card-list">
                 {images.stock.map((stock) => {
-                    return <ImageCard id= {stock.id} public_url={stock.public_url} verdict={stock.verdict} />
+                    return <ImageCard id= {stock.id} key={stock.id} public_url={stock.public_url} verdict={stock.verdict} />
                 })}
                </div>}
             

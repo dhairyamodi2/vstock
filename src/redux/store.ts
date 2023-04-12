@@ -7,16 +7,21 @@ import { categoryReducers } from './Categories/categories.reducers';
 import { getCategories } from './Categories/categories.actions';
 import { getImages } from './Images/images.actions';
 import { imageAlbumReducer, imageDetailsReducer, imageReducers, imageUserRedeucer } from './Images/images.reducers';
+import { authReducer, visitReducer } from './User/user.reducer';
 
 const reducers = combineReducers({
     categories: categoryReducers,
     images : imageReducers,
     imageDetails : imageDetailsReducer,
     imageByAlbums : imageAlbumReducer,
-    imageByUser : imageUserRedeucer
+    imageByUser : imageUserRedeucer,
+    visitedState : visitReducer,
+    authState : authReducer
 }
 )
-const initialState = {}
+const initialState = {
+    visitedState : {visited: false}
+}
 
 const middleware = [thunk];
 

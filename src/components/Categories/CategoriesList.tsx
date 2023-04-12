@@ -21,7 +21,7 @@ const CategoryList = function () {
                 </div> :
                      <div className="card-list">
                         {categories.categories?.map((category) => {
-                            return <CategoriesCard category_image={category.category_image} category_name={category.category_name} />
+                            return <CategoriesCard category_image={category.category_image} key={category.category_name} category_name={category.category_name} />
                         })}
                     </div>
             }
