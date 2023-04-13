@@ -33,7 +33,7 @@ const DrawerComponent: React.FC<DrawerProps> = function ({ isOpen, onClose, onOp
         placement='left'
         onClose={onClose}
       >
-        <DrawerOverlay />
+        <DrawerOverlay backdropFilter='blur(10px) hue-rotate(90deg)'/>
         <DrawerContent>
           <DrawerCloseButton />
           <DrawerHeader borderBottomWidth='1px'>

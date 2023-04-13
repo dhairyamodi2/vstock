@@ -1,5 +1,5 @@
 import { Dispatch } from "redux"
-import { load_fail, load_req, load_suc, login_fail, login_suc } from "./user.constants"
+import { load_fail, load_req, load_suc, login_fail, login_suc, logout_suc } from "./user.constants"
 import { User, UserAction, VisitedAction } from "./user.types"
 
 export const visitOnce = function(){
@@ -80,6 +80,22 @@ export const getMe = function(){
         } catch (error) {
             dispatch({
                 type: load_fail,
+                payload: null
+            })
+        }
+    }
+}
+
+export const logoutAction = function(){
+    return async function(dispatch : Dispatch<UserAction>){
+        try {
+            dispatch({
+                type: logout_suc,
+                payload: null
+            })
+        } catch (error) {
+            dispatch({
+                type: logout_suc,
                 payload: null
             })
         }

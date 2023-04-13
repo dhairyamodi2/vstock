@@ -1,12 +1,15 @@
 import { ImageDetailState } from "@/redux/Images/images.types"
 import { State } from "@/redux/store"
 import { DownloadIcon, StarIcon } from "@chakra-ui/icons"
-import { Button, Spinner } from "@chakra-ui/react"
+import { Button, Spinner, useDisclosure } from "@chakra-ui/react"
 import Image from "next/image"
 import { useEffect } from "react"
 import { useSelector } from "react-redux"
+import Overlay from "../Download/Overlay"
+import DownloadOverlay from "../Download/SubscriptionsModelOverlay"
 
 export const DetailsImage = function () {
+    const { isOpen, onOpen, onClose } = useDisclosure()
     const imageDetails = useSelector<State, ImageDetailState>(state => state.imageDetails)
     return (
         <div className="image-details">
@@ -28,8 +31,11 @@ export const DetailsImage = function () {
                             bgColor={'black'}
                             color={'white'}
                             transform={'0.3s'}
-                            _hover={{ bgColor: 'black', color: 'white' }}>Download</Button>
-                    </div></>}</>}
+                            _hover={{ bgColor: 'black', color: 'white' }}
+                            onClick={onOpen}>Download</Button>
+                    </div></>}
+                    <Overlay isOpen={isOpen} onClose={onClose} imageDetails={imageDetails}/>
+                    </>}
 
 
         </div>

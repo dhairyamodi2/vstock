@@ -25,8 +25,8 @@ const ModelOverlay : React.FC<OverlayProps>= function ({isOpen, onClose, onOpen}
     }, [categories])
     return (
         <>
-         <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
+         <Modal isOpen={isOpen} onClose={onClose} size={'xl'}>
+        <ModalOverlay backdropFilter='blur(10px) hue-rotate(90deg)'/>
         <ModalContent>
           <ModalHeader>Search By Categories</ModalHeader>
           <ModalCloseButton />
