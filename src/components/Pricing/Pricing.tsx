@@ -1,9 +1,13 @@
 import { Box, SimpleGrid, useColorModeValue } from '@chakra-ui/react'
+import { MouseEventHandler } from 'react'
 import { SiHive, SiMarketo, SiMicrosoft } from 'react-icons/si'
 import { ActionButton } from './ActionButton'
 import { PricingCard } from './PricingCard'
 
-export const Pricing = () => (
+interface PricingProps {
+   onClick? : MouseEventHandler<HTMLButtonElement>
+}
+export const Pricing : React.FC<PricingProps> = ({onClick}) => (
   <Box
     as="section"
     bg={useColorModeValue('gray.50', 'gray.800')}
@@ -31,7 +35,7 @@ export const Pricing = () => (
         }}
         icon={SiMicrosoft}
         button={
-          <ActionButton variant="outline" borderWidth="2px">
+          <ActionButton variant="outline" borderWidth="2px" name='BUSINESS' onClick={onClick}>
             Buy now
           </ActionButton>
         }
@@ -49,7 +53,7 @@ export const Pricing = () => (
         }}
         icon={SiMarketo}
         button={
-          <ActionButton variant="outline" borderWidth="2px">
+          <ActionButton variant="outline" borderWidth="2px" name='AGENCY' onClick={onClick}>
             Buy now
           </ActionButton>
         }

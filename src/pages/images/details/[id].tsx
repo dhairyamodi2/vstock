@@ -22,6 +22,14 @@ export default function ImageDetails() {
     console.log('auth state');
     console.log(authState);
 
+    // useEffect(() => {
+    //     if(router.query.payment_intent != undefined){
+    //         if(router.query.redirect_status == 'succeeded'){
+    //             alert('Payment succeeded!');
+    //             router.replace('/images/details/' + id, undefined, {shallow: true})
+    //         }
+    //     }
+    // }, [router.query.payment_intent])
     useLoadUser(visitedState)
     useEffect(() => {
         if (id == undefined) id = "";

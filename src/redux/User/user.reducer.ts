@@ -1,4 +1,4 @@
-import { load_fail, load_req, load_suc, login_fail, login_suc } from "./user.constants";
+import { load_fail, load_req, load_suc, login_fail, login_suc, logout_suc } from "./user.constants";
 import { UserAction, UserState, VisitedAction, VisitedState } from "./user.types";
 
 export const visitReducer = (state : VisitedState = {visited: false}, action: VisitedAction) : VisitedState =>{
@@ -44,7 +44,12 @@ export const authReducer = (state : UserState = {isAuthenticated: false, loading
                 isAuthenticated: false,
                 user : null
             }
-        
+        case logout_suc:
+            return {
+                loading: false,
+                isAuthenticated: false,
+                user: null
+            } 
         default:
             return state;
     }
