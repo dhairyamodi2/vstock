@@ -1,5 +1,5 @@
 import { OverlayProps } from "@/types/overlay"
-import { Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay } from "@chakra-ui/react"
+import { Heading, List, ListItem, Modal, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Text, UnorderedList } from "@chakra-ui/react"
 
 interface ParentClose extends OverlayProps{
     parentClose : () => void;
@@ -13,10 +13,22 @@ const AlreadyDownloaded : React.FC<ParentClose> = function({onClose, onOpen, isO
         }} size={'lg'} isOpen={isOpen}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader></ModalHeader>
+          <ModalHeader>
+            <Heading size={'md'}>You have already invoked this image</Heading>
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo ducimus porro omnis reprehenderit eveniet deserunt neque illo cum at quaerat, eligendi, facilis dolorem placeat quibusdam. Itaque est odit velit enim!
+            
+            <Text>To Download this image: </Text>
+            <List>
+              <UnorderedList>
+              <ListItem>Navigate to my accounts</ListItem>
+              <ListItem>Select my Downloads</ListItem>
+              <ListItem>Scroll through the image you want to download</ListItem>
+              <ListItem>Click on Download Button and high resolution image will be downloaded</ListItem>
+              </UnorderedList>
+              
+            </List>
           </ModalBody>
         </ModalContent>
       </Modal>
