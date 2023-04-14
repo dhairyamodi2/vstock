@@ -89,6 +89,7 @@ export const getMe = function(){
 export const logoutAction = function(){
     return async function(dispatch : Dispatch<UserAction>){
         try {
+            localStorage.removeItem('token');
             dispatch({
                 type: logout_suc,
                 payload: null

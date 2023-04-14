@@ -34,7 +34,7 @@
     letter-spacing: 2px;
 }
 
-input[type='text'] {
+input[type='text'], textarea {
     font-family: "Ubuntu";
     font-style: normal;
     font-size: 20px;
@@ -58,7 +58,7 @@ input[type='text'] {
 input[type='text']:hover{
     border: none;
     outline: none;
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 .search {

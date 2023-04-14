@@ -1,0 +1,11 @@
+.profile-update{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+}
+
+.profile-update > input {
+    margin: 15px;
+}

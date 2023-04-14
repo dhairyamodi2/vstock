@@ -14,7 +14,7 @@ export const useCheckAuth = function(visitedState : VisitedState, authState : Us
         }
         else {
             if (authState.isAuthenticated == true) {
-                router.push("/");
+                router.replace('/account');
             }
             if(authState.isAuthenticated == false && authState.loading == false){
                 setLoader(false);
