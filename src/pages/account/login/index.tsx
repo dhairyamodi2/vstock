@@ -12,6 +12,7 @@ import { getMe, visitOnce } from "@/redux/User/user.actions";
 import { useRouter } from "next/router";
 import { useCheckAuth } from "@/hooks/auth";
 import { getCategories } from "@/redux/Categories/categories.actions";
+import CustomLoader from "@/components/Common/CustomLoader";
 
 const Page: React.FC = function () {
     const auth = getAuth(app);
@@ -44,7 +45,7 @@ const Page: React.FC = function () {
     }
     return (
         <div>
-            {pageLoader == true ? <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facere aliquam, magni, perferendis incidunt ad error hic, cum neque iste dolores cumque laudantium dolor enim molestiae quidem voluptatem non quasi fuga.</div> : <div className="login-component">
+            {pageLoader == true ? <CustomLoader />: <div className="login-component">
 
                 <Header />
                 {/* <CompleteSignUp email={userState.email} id = {userState.id} type = {userState.type}/> */}

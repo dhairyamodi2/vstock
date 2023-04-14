@@ -8,8 +8,9 @@ interface ImageProps {
     id: string;
     public_url : string;
     verdict : string;
+    invokes? : boolean;
 }
-const ImageCard : React.FC<ImageProps>= function ({id, public_url, verdict}) {
+const ImageCard : React.FC<ImageProps>= function ({id, public_url, verdict, invokes}) {
     const router = useRouter();
     function handleClick() {
         router.push({
@@ -22,7 +23,7 @@ const ImageCard : React.FC<ImageProps>= function ({id, public_url, verdict}) {
             </Image>
             <div className="image-actions">
                 <div className="img-actions">
-                    <span>{id}</span>
+                    <span>{invokes === true ? "Right click and Save to Download High Quality Image" : id}</span>
                     <div className="i-icons">
                         <MdOutlineAddShoppingCart />
                     </div>

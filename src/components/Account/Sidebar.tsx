@@ -159,7 +159,7 @@ const SidebarContent = ({ onClose, setRender, ...rest }: SidebarProps) => {
                 }); onClose()
             }}>Bookmarks</NavItem>
 
-            <NavItem key={'Bookmarks'} icon={FaSignOutAlt} name={'Bookmarks'} onClick={() => {
+            <NavItem key={'Sign Out'} icon={FaSignOutAlt} name={'Bookmarks'} onClick={() => {
                 dispatch(logoutAction() as any);
                 onClose()
             }}>Sign Out</NavItem>

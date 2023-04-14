@@ -36,6 +36,13 @@ export default function Account(){
         router.events.on('hashChangeComplete', () => {
             setLoader(false);
         })
+        setRender({
+            account: true,
+            bookmarks: false,
+            help: false,
+            invokes: false,
+            subscription: false
+        })
     }, [])
     useEffect(() => {
         if(visitedState.visited == false){

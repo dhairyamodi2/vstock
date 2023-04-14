@@ -12,6 +12,9 @@ export interface User {
     name : string;
     email : string;
     user_type : string;
+    industry: string;
+    bank_ac_number : string;
+    IFS_code : string;
 }
 
 export interface UserState {

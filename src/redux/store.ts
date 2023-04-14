@@ -8,6 +8,7 @@ import { getCategories } from './Categories/categories.actions';
 import { getImages } from './Images/images.actions';
 import { imageAlbumReducer, imageDetailsReducer, imageReducers, imageUserRedeucer } from './Images/images.reducers';
 import { authReducer, visitReducer } from './User/user.reducer';
+import { myInvokesReducer } from './Invokes/invokes.reducers';
 
 const reducers = combineReducers({
     categories: categoryReducers,
@@ -16,7 +17,8 @@ const reducers = combineReducers({
     imageByAlbums : imageAlbumReducer,
     imageByUser : imageUserRedeucer,
     visitedState : visitReducer,
-    authState : authReducer
+    authState : authReducer,
+    myInvokesState : myInvokesReducer
 }
 )
 const initialState = {
