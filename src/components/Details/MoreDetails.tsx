@@ -7,9 +7,9 @@ const MoreDetails = function(){
     const imageDetails = useSelector<State, ImageDetailState>(state => state.imageDetails)
     return (
         <div className="more-details">
-            {imageDetails.stock && imageDetails.stock.album && <MoreInfo type="album" payload={imageDetails.stock.album.album_name}/>}
-            {imageDetails.stock && imageDetails.stock.user && <MoreInfo type="user" payload={imageDetails.stock.user.uid} />}
-            {imageDetails.stock && imageDetails.stock.categories && <MoreInfo type="categories" payload="" categories={imageDetails.stock.categories.map((category) => category.category_name)}  />}
+            {imageDetails.stock && imageDetails.stock.album && <MoreInfo type="album" payload={imageDetails.stock.album.album_name}  imageId={imageDetails.stock.id}/>}
+            {imageDetails.stock && imageDetails.stock.user && <MoreInfo type="user" payload={imageDetails.stock.user.uid} imageId={imageDetails.stock.id}/>}
+            {imageDetails.stock && imageDetails.stock.categories && <MoreInfo type="categories" payload="" categories={imageDetails.stock.categories.map((category) => category.category_name)}  imageId={imageDetails.stock.id}/>}
         </div>
     )
 }

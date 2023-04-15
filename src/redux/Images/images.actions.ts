@@ -129,3 +129,42 @@ export const getMoreInfo = function(type: 'album' | 'user' , payload : string, l
         }
     }
 }
+
+
+export const getMoreImages = function(id : string, type: 'album' | 'user'){
+    return async function(dispatch: Dispatch<ImageActions>){
+        try {
+            dispatch({
+                type: images_req,
+                payload: {loading: true, success: false, message: "loading", stock: []}
+
+            })
+            const filterBy = type == 'album' ? 'by-albums/' : 'by-user/';
+            const data = await fetch('http://localhost:3001/stock/' + filterBy + id);
+            const res = await data.json();
+            console.log('albums');
+            console.log(res.success);
+            console.log(res.data);
+            if(res.success == true){
+                console.log('working till here ');
+                console.log(res.data);
+                dispatch({
+                    type: images_suc,
+                    payload: {loading: false, success: true, message: "sdfsf", stock: res.data as Array<Stock>}
+                });
+                return;
+            }
+            dispatch({
+                type: images_fail,
+                payload: {loading: false, success: false, message: res.message, stock: []}
+            })
+        } catch (error) {
+            console.log('ghere');
+            dispatch({
+                type: images_fail,
+                payload: {loading: false, success: false, message: '', stock: []}
+            })
+        }
+    }
+}
+

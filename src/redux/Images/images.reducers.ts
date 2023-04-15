@@ -4,7 +4,7 @@ import { ImageActions, ImageDetailAction, ImageDetailState, ImagesState } from "
 export const imageReducers = (state: ImagesState = {
     success: false,
     loading: true,
-    message: "Some error",
+    message: "Loading",
     stock: []
 }, action: ImageActions): ImagesState => {
     switch (action.type) {
@@ -18,7 +18,7 @@ export const imageReducers = (state: ImagesState = {
             return {
                 ...action.payload,
                 loading: false,
-                success: true
+                success: true,
             }
         case images_fail:
             return {
