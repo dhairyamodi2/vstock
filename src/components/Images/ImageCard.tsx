@@ -19,7 +19,7 @@ const ImageCard : React.FC<ImageProps>= function ({id, public_url, verdict, invo
     }
     return (
         <div className="image-card" onClick={handleClick}>
-            <Image src={public_url} loading={'lazy'} alt={''} width={440} height={440} >
+            <Image src={public_url} loading={'eager'} alt={''} width={440} height={440} >
             </Image>
             <div className="image-actions">
                 <div className="img-actions">

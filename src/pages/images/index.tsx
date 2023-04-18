@@ -29,6 +29,7 @@ const Images = () => {
     useEffect(() => {
         getCategories();
     }, [router.query.categories])
+
     useEffect(() => {
         console.log(router.query);
         let arr: string[] = [];

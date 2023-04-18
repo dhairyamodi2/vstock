@@ -9,14 +9,9 @@ import { InvokesData, MyInvokesState } from "@/redux/Invokes/invokes.types";
 import CustomLoader from "../Common/CustomLoader";
 import Link from "next/link";
 import ImageCard from "../Images/ImageCard";
+import { Button } from "@chakra-ui/react";
+import { DownloadIcon } from "@chakra-ui/icons";
 
-
-const data : Array<InvokesData>= [
-    {
-        id : '123415',
-        private_url: '<Link to = "" sjkgsdfljgldkfjgldflgdlk />'
-    }
-]
 const columnHelper = createColumnHelper<InvokesData>();
 
 const columns = [
@@ -46,14 +41,28 @@ const MyInvokes = function () {
             }
         }
     }, [myInvokes])
+    console.log(myInvokes);
     return (
         <div>
-            {myInvokes.loading ? <CustomLoader /> : <div style={{display: 'flex', 
-        justifyContent: 'center', flexWrap: 'wrap'}}>
+            {myInvokes.loading ? <CustomLoader /> : <div style={{display: 'flex', flexDirection:'column', alignItems: 'center'}}>
+                <div className="image-details">
             {rows.map((item) => {
-                return <ImageCard key={item.id} id={item.id} public_url={item.private_url} verdict={"approved"} invokes={true}/>
+                return <><img src={item.public_url} className='details-img' loading="eager"/>
+                <div className="actions-image">
+                    <Link href={item.private_url}>
+                    <Button
+                        leftIcon={<DownloadIcon />}
+                        bgColor={'black'}
+                        color={'white'}
+                        transform={'0.3s'}
+                        _hover={{ bgColor: 'black', color: 'white' }}>Download</Button>
+                    </Link>
+                    
+                </div></>
             })}   
+            </div>
         </div>}
+        
 
         </div>
     )

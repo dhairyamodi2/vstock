@@ -37,7 +37,7 @@ const Login: React.FC<LoginType> = function ({ setUserState, userState }) {
 
                     if (data && data.data && data.data.user) {
                         dispatch(loginAction(data.data.token as string, data.data.user as User) as any);
-                        router.push('/');
+                        router.push('/account');
                     }
                     else if(data.statusCode == 422 || data.statusCode == 400 || data.statusCode == 500){
                         alert(data.message);

@@ -1,7 +1,10 @@
+import { loginAction } from "@/redux/User/user.actions";
+import { User } from "@/redux/User/user.types";
 import { UserState } from "@/types/Account";
 import { Button } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { ChangeEvent, ChangeEventHandler, MouseEventHandler, useState } from "react";
+import { useDispatch } from "react-redux";
 
 const CustomerProfile : React.FC<UserState>= function({email, id, type}){
     const [signUpState, setSignUpState] = useState({
@@ -10,6 +13,7 @@ const CustomerProfile : React.FC<UserState>= function({email, id, type}){
         bank_ac_number : "",
         IFS_code : ""
     });
+    const dispatch = useDispatch();
     const router = useRouter();
     function handleSignUp(){
         const obj = {
@@ -32,7 +36,8 @@ const CustomerProfile : React.FC<UserState>= function({email, id, type}){
             console.log(data);
             console.log(data != null && data.data.user != null)
             if(data != null && data.data.user != null){
-                router.push('/');
+                dispatch(loginAction(data.data.token as string, data.data.user as User) as any);
+                router.push('/account');
             }
             else {
                 alert(data.message);

@@ -1,6 +1,7 @@
 export interface InvokesData {
     id : string;
     private_url : string;
+    public_url :string;
 }
 export interface MyInvokesResponse {
     success : boolean;

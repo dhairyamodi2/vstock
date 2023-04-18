@@ -168,3 +168,47 @@ export const getMoreImages = function(id : string, type: 'album' | 'user'){
     }
 }
 
+export const searchImages = function(search_field : string){
+    return async function(dispatch : Dispatch<ImageActions>){
+        try {
+            console.log(search_field);
+            dispatch({
+                type: images_req,
+                payload: {stock: [], success: false, loading: true, message: "Loading"}
+            })
+
+            const data = await fetch('http://localhost:3001/stock?search_field=' + search_field);
+            const res =  await data.json();
+            console.log(res);
+            if(res.success == true){
+                let stock: Array<Stock> = [];
+                let stockString : Array<string> = [];
+                //@ts-ignore
+                stockString = res.data.map((image) => JSON.stringify(image))
+                let arr = stockString.filter((item, pos) => {
+                    if(stockString.indexOf(item) == pos){
+                        return true;
+                    }
+                    return false;
+                })
+
+                stock = arr.map((item) => JSON.parse(item));
+                
+                dispatch({
+                    type: images_suc,
+                    payload: {stock: stock, success: true, message: "", loading: false}
+                })
+                return ;
+            }
+            dispatch({
+                type: images_fail,
+                payload: {loading: false, success: false, message: res.message, stock: []}
+            })
+        } catch (error) {
+            dispatch({
+                type: images_fail,
+                payload: {loading: false, success: false, message: error as string, stock: []}
+            })
+        }
+    }
+}
